@@ -1,0 +1,24 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "my-wasm-dashboard.fullname" . }}-configmap-appsetting
+  labels:
+    {{- include "my-wasm-dashboard.labels" . | nindent 4 }}
+data:
+  appsettings.json: |-
+     {
+        "backApiUrl": "{{ .Values.env.backApiUrl }}",
+        "AzureAd": {
+           "ProviderOptions": {
+              "Authentication": {
+                 "Authority": "{{ .Values.env.azureAd.authority }}",    
+                 "ClientId": "{{ .Values.env.azureAd.clientId }}", 
+                 "ValidateAuthority": true
+              },
+              "LoginMode": "redirect",
+              "DefaultAccessTokenScopes": [
+                 "{{ .Values.env.azureAd.accessTokenScopes }}"
+              ]
+           }
+        }
+     }

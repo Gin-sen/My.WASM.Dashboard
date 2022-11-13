@@ -1,0 +1,18 @@
+{
+  "name": "devopstod3",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Maxime PLACES",
+  "main": "JsBundle/index.js",
+  "scripts": {
+    "build": "webpack --no-color",
+    "prod": "webpack --no-color --mode production"
+  },
+  "dependencies": {
+    "d3": "^7.6.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
