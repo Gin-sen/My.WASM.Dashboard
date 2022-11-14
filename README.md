@@ -1,5 +1,13 @@
 # My.WASM.Dashboard
-WASM Blazor with webpack bundling
+.Net 7 WASM Blazor with webpack bundling
+
+# Webpack integration
+
+NPM is needed to install node packages.
+
+Webpack is used to bundle and minify you Javascript files from JsBundle folder.
+
+NPM commands are run before build in JsBundle directory to produce `wwwroot/js/mybundle.js`
 
 # Docker Support on Visual Studio
 
@@ -16,6 +24,10 @@ docker stop my_wasm_dashboard
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 ```
+
+Docker dev setup for Blazor WebAssembly will be invistigated furthermore
+but it is planned for .Net 8 Release so 
+it is recommended to work without docker for step-by-step debugging in Visual Studio.
 
 
 # Installation de la template
