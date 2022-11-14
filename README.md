@@ -25,8 +25,7 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 ```
 
-Docker dev setup for Blazor WebAssembly will be invistigated furthermore
-but it is planned for .Net 8 Release so 
+Docker dev setup for Blazor WebAssembly will be invistigated furthermore but it is planned for .Net 8 Release so 
 it is recommended to work without docker for step-by-step debugging in Visual Studio.
 
 
