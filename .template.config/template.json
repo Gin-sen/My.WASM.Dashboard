@@ -1,3 +1,73 @@
 {
-  ""
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Maxime PLACES",
+  "classifications": [ "Blazor", "WASM", "Frontend" ],
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "identity": "My.WASM.Dashboard", // unique indentifier
+  "name": "My.WASM.Dashboard", // Display name
+  "shortName": "my-wasm-dashboard", // tag pour la commande 'dotnet new'
+  "sourceName": "My.WASM.Dashboard", // nom remplacé dans la solution
+  "defaultName": "My.WASM.Dashboard", // nom par défault si pas précisé
+  "preferNameDirectory": true,
+  "guids": [
+    "8B2CB032-B30B-4659-A174-63A63401C15E"
+  ],
+  "symbols": {
+    "fullNameDockerService": {
+      "type": "derived",
+      "valueSource": "name", // name -> pointe sur le nom du nouveau projet
+      "valueTransform": "lc",
+      "replaces": "my.wasm.dashboard"
+    },
+    "fullNameDockerImage": {
+      "type": "derived",
+      "valueSource": "name", // name -> pointe sur le nom du nouveau projet
+      "valueTransform": "chainedImage",
+      "replaces": "mywasmdashboard"
+    },
+    "chartFolderRename": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "chainedFolder",
+      "fileRename": "my-wasm-dashboard"
+    }
+  },
+  "forms": {
+    "chainedImage": {
+      "identifier": "chain",
+      "steps": [ "dotToNull", "lc" ] // An array of names of other transformations (applied in the order they appear in the array)
+    },
+    "dotToNull": {
+      "identifier": "replace",
+      "pattern": "\\.", // A regular expression matching the characters to replace
+      "replacement": "" // The replacement for the matched characters
+    },
+    "chainedFolder": {
+      "identifier": "chain",
+      "steps": [ "dotToDash", "lc" ]
+    },
+    "dotToDash": {
+      "identifier": "replace",
+      "pattern": "\\.",
+      "replacement": "-"
+    },
+    "lc": {
+      "identifier": "lowerCase"
+    }
+  },
+  "sources": [
+    {
+      "exclude": [ // exclude from template
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        "**/*.lock.json",
+        "**/.vs/**",
+        "**/.git/**"
+      ]
+    }
+  ]
 }

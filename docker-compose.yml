@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  my.wasm.dashboard:
+    image: ${DOCKER_REGISTRY-}mywasmdashboard
+    build:
+      context: .
+      dockerfile: My.WASM.Dashboard/Dockerfile
