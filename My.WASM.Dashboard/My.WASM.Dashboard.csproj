@@ -4,6 +4,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 		<UserSecretsId>eaa6fdce-2066-488d-9a7b-82c6030e4ff3</UserSecretsId>
 		<JsLibRoot>JsBundle\</JsLibRoot>
@@ -47,6 +48,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,6 +83,19 @@
 		<Content Remove="$(JsLibRoot)**" />
 		<None Remove="$(JsLibRoot)**" />
 		<None Include="$(JsLibRoot)**" Exclude="$(JsLibRoot)node_modules\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\d3\d3.js">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\d3\d3.min.js">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\bundle\" />
 	</ItemGroup>
 
 </Project>

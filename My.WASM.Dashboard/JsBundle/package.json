@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "author": "Maxime PLACES",
-  "main": "JsBundle/index.js",
+  "main": "JsBundle/index.cjs",
   "scripts": {
     "build": "webpack --no-color",
     "prod": "webpack --no-color --mode production"
