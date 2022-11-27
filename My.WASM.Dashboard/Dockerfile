@@ -23,5 +23,7 @@ COPY --from=publish /app/publish/wwwroot /usr/share/nginx/html
 COPY My.WASM.Dashboard/nginx.conf /etc/nginx/nginx.conf
 # si on déploie sur Kube, alors appsettings.json 
 # doit etre supprimé dans le container
-ARG KUBE_DEPLOY
+ARG ASPNETCORE_ENVIRONMENT
 RUN if [ ! -z "$KUBE_DEPLOY" ] ; then rm appsettings*.json; fi
+RUN if [ ! -z "$ASPNETCORE_ENVIRONMENT" ] ; then sed -i -e "s/ENVIRONMENT/${ASPNETCORE_ENVIRONMENT}/g" /etc/nginx/nginx.conf ; \
+	else sed -i -e "s/^\s+add_header//g" /etc/nginx/nginx.conf ; fi

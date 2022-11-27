@@ -6,3 +6,5 @@ services:
     build:
       context: .
       dockerfile: My.WASM.Dashboard/Dockerfile
+      args:
+        - ASPNETCORE_ENVIRONMENT=Docker

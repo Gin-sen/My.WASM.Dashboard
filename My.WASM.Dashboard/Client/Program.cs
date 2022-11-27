@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using My.WASM.Dashboard;
+using My.WASM.Dashboard.Infrastructure.HttpClients;
 
 namespace My.WASM.Dashboard
 {
@@ -12,7 +13,7 @@ namespace My.WASM.Dashboard
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClient<WeatherForecastHttpClient>();
 
             builder.Services.AddOidcAuthentication(options =>
             {
